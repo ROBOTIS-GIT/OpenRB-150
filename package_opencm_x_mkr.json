@@ -1,0 +1,60 @@
+{
+    "packages":
+    [
+      {
+        "name": "OpenCM-X",
+        "maintainer": "Will Son",
+        "websiteURL": "https://www.robotis.com/",
+        "email" : "willson@robotis.com",
+        "platforms":
+        [
+          {
+            "name": "OpenCM-X",
+            "architecture": "samd",
+            "version": "1.0.0",
+            "category": "Contributed",
+            "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x.zip",
+            "archiveFileName": "opencm_x.zip",
+            "checksum": "SHA-256:253ed660d89dcad71b74dd7e879b71d70fbd3b75b21d1c060da70f5d18335433",
+            "size": "1723490",
+            "boards": [
+              {
+                "name": "OpenCM-X MKR"
+              }
+            ],
+            "toolsDependencies":
+            [
+              {
+                "packager": "arduino",
+                "name": "arm-none-eabi-gcc",
+                "version": "7-2017q4"
+              },
+              {
+                "packager": "arduino",
+                "name": "bossac",
+                "version": "1.8.0-48-gb176eee"
+              },
+              {
+                "packager": "arduino",
+                "name": "openocd",
+                "version": "0.10.0-arduino9"
+              },
+              {
+                "packager": "arduino",
+                "name": "CMSIS",
+                "version": "4.5.0"
+              },
+              {
+                "packager": "arduino",
+                "name": "CMSIS-Atmel",
+                "version": "1.2.0"
+              }
+            ]
+          }
+        ],
+        "tools":
+        [
+        ]
+      }
+    ]
+  }
