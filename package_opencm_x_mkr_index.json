@@ -13,10 +13,10 @@
           "architecture": "samd",
           "version": "1.0.0",
           "category": "Contributed",
-          "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x.zip",
-          "archiveFileName": "opencm_x.zip",
-          "checksum": "SHA-256:253ed660d89dcad71b74dd7e879b71d70fbd3b75b21d1c060da70f5d18335433",
-          "size": "1723490",
+          "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x_mkr.zip",
+          "archiveFileName": "opencm_x_mkr.zip",
+          "checksum": "SHA-256:7cce240f66c3b6157237ef4c00c07e79462f19db823ed7ed63d76b7a5fc7388f",
+          "size": "1768678",
           "boards": [
             {
               "name": "OpenCM-X MKR"
