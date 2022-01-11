@@ -2,14 +2,14 @@
   "packages":
   [
     {
-      "name": "OpenCM-X MKR",
+      "name": "OpenCM-X_MKR",
       "maintainer": "Will Son",
       "websiteURL": "https://www.robotis.com/",
       "email" : "willson@robotis.com",
       "platforms":
       [
         {
-          "name": "OpenCM-X MKR",
+          "name": "OpenCM-X_MKR",
           "architecture": "samd",
           "version": "1.0.0",
           "category": "Contributed",
@@ -19,7 +19,7 @@
           "size": "1723490",
           "boards": [
             {
-              "name": "OpenCM-X MKR"
+              "name": "OpenCM-X_MKR"
             }
           ],
           "toolsDependencies":
