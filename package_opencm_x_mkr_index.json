@@ -9,7 +9,7 @@
       "platforms":
       [
         {
-          "name": "OpenCM-X MKR",
+          "name": "ROBOTIS Controller",
           "architecture": "OpenCM-X MKR",
           "version": "1.0.0",
           "category": "Contributed",
