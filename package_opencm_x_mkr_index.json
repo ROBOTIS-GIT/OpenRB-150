@@ -2,7 +2,7 @@
   "packages":
   [
     {
-      "name": "OpenCM-X MKR",
+      "name": "ROBOTIS",
       "maintainer": "Will Son",
       "websiteURL": "https://www.robotis.com/",
       "email" : "willson@robotis.com",
@@ -10,7 +10,7 @@
       [
         {
           "name": "OpenCM-X MKR",
-          "architecture": "samd",
+          "architecture": "OpenCM-X MKR",
           "version": "1.0.0",
           "category": "Contributed",
           "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x_mkr.zip",
