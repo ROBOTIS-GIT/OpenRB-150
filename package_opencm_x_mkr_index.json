@@ -15,8 +15,8 @@
           "category": "Contributed",
           "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x_mkr.zip",
           "archiveFileName": "opencm_x_mkr.zip",
-          "checksum": "SHA-256:253ed660d89dcad71b74dd7e879b71d70fbd3b75b21d1c060da70f5d18335433",
-          "size": "1723490",
+          "checksum": "SHA-256:51ae88a8923fe09997aee1cf8d1008f7f649abc335d5668921c70176f57512d3",
+          "size": "1775389",
           "boards": [
             {
               "name": "OpenCM-X MKR"
