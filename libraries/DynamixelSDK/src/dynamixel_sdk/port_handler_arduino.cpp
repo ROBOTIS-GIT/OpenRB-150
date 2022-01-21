@@ -16,7 +16,7 @@
 
 /* Author: Ryu Woon Jung (Leon) */
 
-#if defined(ARDUINO) || defined(__OPENCR__) || defined(__OPENCM904__)
+#if defined(ARDUINO) || defined(__OPENCR__) || defined(__OPENCM904__) || defined(__OPENCMXMKR__)
 
 #include <Arduino.h>
 
@@ -44,7 +44,7 @@ PortHandlerArduino::PortHandlerArduino(const char *port_name)
   pinMode(BDPIN_DXL_PWR_EN, OUTPUT);
 
   setPowerOff();
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   if (port_name[0] == '1')
   {
     socket_fd_ = 0;
@@ -98,7 +98,7 @@ void PortHandlerArduino::clearPort()
   {
     DYNAMIXEL_SERIAL.read();
   }
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   p_dxl_serial->flush();
   while (p_dxl_serial->available())
   {
@@ -140,7 +140,7 @@ int PortHandlerArduino::getBytesAvailable()
 
 #if defined(__OPENCR__)
   bytes_available = DYNAMIXEL_SERIAL.available();
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   bytes_available = p_dxl_serial->available();
 #endif
 
@@ -153,7 +153,7 @@ int PortHandlerArduino::readPort(uint8_t *packet, int length)
 
 #if defined(__OPENCR__)
   rx_length = DYNAMIXEL_SERIAL.available();
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   rx_length = p_dxl_serial->available();
 #endif
 
@@ -164,7 +164,7 @@ int PortHandlerArduino::readPort(uint8_t *packet, int length)
   {
 #if defined(__OPENCR__)
     packet[i] = DYNAMIXEL_SERIAL.read();
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
     packet[i] = p_dxl_serial->read();
 #endif
   }
@@ -180,7 +180,7 @@ int PortHandlerArduino::writePort(uint8_t *packet, int length)
 
 #if defined(__OPENCR__)
   length_written = DYNAMIXEL_SERIAL.write(packet, length);
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   length_written = p_dxl_serial->write(packet, length);
 #endif
 
@@ -232,7 +232,7 @@ bool PortHandlerArduino::setupPort(int baudrate)
 {
 #if defined(__OPENCR__)
   DYNAMIXEL_SERIAL.begin(baudrate);
-#elif defined(__OPENCM904__)
+#elif defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   p_dxl_serial->setDxlMode(true);
   p_dxl_serial->begin(baudrate);
 #endif

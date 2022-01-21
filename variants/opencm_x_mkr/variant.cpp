@@ -71,8 +71,10 @@ const PinDescription g_APinDescription[] = {
   { PORTA, 19, PIO_SERCOM,  (PIN_ATTR_DIGITAL|PIN_ATTR_PWM|PIN_ATTR_TIMER    ), No_ADC_Channel, PWM3_CH1,   TC3_CH1,      EXTERNAL_INT_NONE }, // MISO: SERCOM1/PAD[3]
 
                                                                                                                                                // PINOUT=0
-  { PORTA,  8, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), ADC_Channel16,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NMI  }, // SDA:  SERCOM2/PAD[0]
-  { PORTA,  9, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), ADC_Channel17,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // SCL:  SERCOM2/PAD[1]
+  { PORTA,  8, PIO_SERCOM, (PIN_ATTR_DIGITAL                             ), ADC_Channel16,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NMI  }, // SDA:  SERCOM0/PAD[0]
+  { PORTA,  9, PIO_SERCOM, (PIN_ATTR_DIGITAL                             ), ADC_Channel17,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // SCL:  SERCOM0/PAD[1]
+  // { PORTA,  8, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), ADC_Channel16,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NMI  }, // SDA:  SERCOM2/PAD[0]
+  // { PORTA,  9, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), ADC_Channel17,  NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // SCL:  SERCOM2/PAD[1]
 
                                                                                                                                                // RXPO=3 TXPO=1
   { PORTB, 23, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // RX:   SERCOM5/PAD[3]
@@ -144,8 +146,8 @@ const PinDescription g_APinDescription[] = {
  | 35         |                  |  PA01  | XOUT32          |   01   |     |     |     |     |         |   1/01  | TCC2/1 |        |          |          |
  +------------+------------------+--------+-----------------+--------+-----+-----+-----+-----+---------+---------+--------+--------+----------+----------+
  */
-  { PORTA, 12, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // Serial1 TX:   SERCOM4/PAD[0]
-  { PORTA, 13, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // Serial1 RX:   SERCOM4/PAD[1]
+  { PORTA, 12, PIO_SERCOM, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // Serial1 TX:   SERCOM2/PAD[0]
+  { PORTA, 13, PIO_SERCOM, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // Serial1 RX:   SERCOM2/PAD[1]
   { PORTA, 14, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // Serial2 TX:   SERCOM4/PAD[2]
   { PORTA, 15, PIO_SERCOM_ALT, (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // Serial2 RX:   SERCOM4/PAD[3]
                                                                                                                                                // DIPO=3 DOPO=0  
@@ -180,18 +182,22 @@ SERCOM sercom4(SERCOM4);
 SERCOM sercom5(SERCOM5);
 
 // Serial1
-Uart Serial1(&sercom5, PIN_SERIAL3_RX, PIN_SERIAL3_TX, PAD_SERIAL3_RX, PAD_SERIAL3_TX);
-// Uart Serial1(&sercom4, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
-// Uart Serial2(&sercom4, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX);
-// Uart Serial3(&sercom5, PIN_SERIAL3_RX, PIN_SERIAL3_TX, PAD_SERIAL3_RX, PAD_SERIAL3_TX);
+// Uart Serial1(&sercom5, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
+Uart Serial1(&sercom2, PIN_SERIAL1_RX, PIN_SERIAL1_TX, PAD_SERIAL1_RX, PAD_SERIAL1_TX);
+Uart Serial2(&sercom4, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX);
+Uart Serial3(&sercom5, PIN_SERIAL3_RX, PIN_SERIAL3_TX, PAD_SERIAL3_RX, PAD_SERIAL3_TX);
+
+void SERCOM2_Handler()
+{
+  Serial1.IrqHandler();
+}
 
 void SERCOM4_Handler()
 {
-  Serial1.IrqHandler();
-  // Serial2.IrqHandler();
+  Serial2.IrqHandler();
 }
 
-// void SERCOM5_Handler()
-// {
-//   Serial3.IrqHandler();
-// }
+void SERCOM5_Handler()
+{
+  Serial3.IrqHandler();
+}

@@ -22,7 +22,7 @@
 #ifndef DYNAMIXEL_SDK_INCLUDE_DYNAMIXEL_SDK_ARDUINO_PORTHANDLERARDUINO_H_
 #define DYNAMIXEL_SDK_INCLUDE_DYNAMIXEL_SDK_ARDUINO_PORTHANDLERARDUINO_H_
 
-#if defined(ARDUINO) || defined(__OPENCR__) || defined (__OPENCM904__)
+#if defined(ARDUINO) || defined(__OPENCR__) || defined (__OPENCM904__) || defined(__OPENCMXMKR__)
 #include <Arduino.h>
 #endif
 
@@ -45,7 +45,7 @@ class PortHandlerArduino : public PortHandler
   double  packet_timeout_;
   double  tx_time_per_byte;
 
-#if defined(__OPENCM904__)
+#if defined(__OPENCM904__) || defined(__OPENCMXMKR__)
   UARTClass *p_dxl_serial;
 #endif
 

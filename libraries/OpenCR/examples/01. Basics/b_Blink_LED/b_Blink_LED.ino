@@ -9,12 +9,12 @@
 #define BDPIN_LED_USER_4        25
  */
 
-int led_pin = 32;
+int led_pin = 8;
 
 void setup() {
   // Set up the built-in LED pin as an output:
   pinMode(led_pin, OUTPUT);
-  SerialUSB.begin(115200);
+  Serial.begin(115200);
 
 }
 

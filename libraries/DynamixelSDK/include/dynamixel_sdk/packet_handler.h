@@ -22,7 +22,7 @@
 #ifndef DYNAMIXEL_SDK_INCLUDE_DYNAMIXEL_SDK_PACKETHANDLER_H_
 #define DYNAMIXEL_SDK_INCLUDE_DYNAMIXEL_SDK_PACKETHANDLER_H_
 
-#if defined(ARDUINO) || defined(__OPENCR__) || defined(__OPENCM904__)
+#if defined(ARDUINO) || defined(__OPENCR__) || defined(__OPENCM904__) || defined(__OPENCMXMKR__)
 #include <Arduino.h>
 
 #define ERROR_PRINT  SerialBT2.print	

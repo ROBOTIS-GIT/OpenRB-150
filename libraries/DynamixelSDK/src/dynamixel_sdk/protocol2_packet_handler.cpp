@@ -26,7 +26,7 @@
 #define WINDLLEXPORT
 #include <Windows.h>
 #include "protocol2_packet_handler.h"
-#elif defined(ARDUINO) || defined(__OPENCR__) || defined(__OPENCM904__)
+#elif defined(ARDUINO) || defined(__OPENCR__) || defined(__OPENCM904__) || defined(__OPENCMXMKR__)
 #include "../../include/dynamixel_sdk/protocol2_packet_handler.h"
 #endif
 

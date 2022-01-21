@@ -132,12 +132,12 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 // #define WIRE_INTERFACES_COUNT 1
 
 // Wire
-// #define PIN_WIRE_SDA        (11u)
-// #define PIN_WIRE_SCL        (12u)
-// #define PERIPH_WIRE         sercom2
-// #define WIRE_IT_HANDLER     SERCOM2_Handler
-// static const uint8_t SDA = PIN_WIRE_SDA;
-// static const uint8_t SCL = PIN_WIRE_SCL;
+#define PIN_WIRE_SDA        (11u)
+#define PIN_WIRE_SCL        (12u)
+#define PERIPH_WIRE         sercom0
+#define WIRE_IT_HANDLER     SERCOM0_Handler
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
 
 // USB
 // ---
@@ -171,28 +171,28 @@ extern SERCOM sercom5;
 
 // Serial1
 extern Uart Serial1;
-#define PIN_SERIAL3_RX (13ul)
-#define PIN_SERIAL3_TX (14ul)
-#define PAD_SERIAL3_TX (UART_TX_PAD_2)
-#define PAD_SERIAL3_RX (SERCOM_RX_PAD_3)
-// #define PIN_SERIAL1_RX (27ul)
-// #define PIN_SERIAL1_TX (26ul)
-// #define PAD_SERIAL1_TX (UART_TX_PAD_0)
-// #define PAD_SERIAL1_RX (SERCOM_RX_PAD_1)
-
-// Serial2 4pin uart
-// extern Uart Serial2;
-// #define PIN_SERIAL2_RX (29ul)
-// #define PIN_SERIAL2_TX (28ul)
-// #define PAD_SERIAL2_TX (UART_TX_PAD_2)
-// #define PAD_SERIAL2_RX (SERCOM_RX_PAD_3)
-
-// Serial3 exp uart
-// extern Uart Serial3;
 // #define PIN_SERIAL3_RX (13ul)
 // #define PIN_SERIAL3_TX (14ul)
 // #define PAD_SERIAL3_TX (UART_TX_PAD_2)
 // #define PAD_SERIAL3_RX (SERCOM_RX_PAD_3)
+#define PIN_SERIAL1_TX (26ul)
+#define PIN_SERIAL1_RX (27ul)
+#define PAD_SERIAL1_TX (UART_TX_PAD_0)
+#define PAD_SERIAL1_RX (SERCOM_RX_PAD_1)
+
+// Serial2 4pin uart
+extern Uart Serial2;
+#define PIN_SERIAL2_TX (28ul)
+#define PIN_SERIAL2_RX (29ul)
+#define PAD_SERIAL2_TX (UART_TX_PAD_2)
+#define PAD_SERIAL2_RX (SERCOM_RX_PAD_3)
+
+// Serial3 exp uart
+extern Uart Serial3;
+#define PIN_SERIAL3_TX (14ul)
+#define PIN_SERIAL3_RX (13ul)
+#define PAD_SERIAL3_TX (UART_TX_PAD_2)
+#define PAD_SERIAL3_RX (SERCOM_RX_PAD_3)
 #endif // __cplusplus
 
 #ifdef __cplusplus
@@ -220,8 +220,8 @@ unsigned int PINCOUNT_fn();
 //                            pins are NOT connected to anything by default.
 #define SERIAL_PORT_USBVIRTUAL      SerialUSB
 #define SERIAL_PORT_MONITOR         SerialUSB
-#define SERIAL_PORT_HARDWARE        Serial1
-#define SERIAL_PORT_HARDWARE_OPEN   Serial1
+#define SERIAL_PORT_HARDWARE        Serial3
+#define SERIAL_PORT_HARDWARE_OPEN   Serial3
 
 // Alias Serial to SerialUSB
 #define Serial                      SerialUSB
