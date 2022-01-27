@@ -1,10 +1,7 @@
-# OpenCR specific functions
-Serial4	KEYWORD1
-printf	KEYWORD2
-flushRx	KEYWORD2
-getBaudRate	KEYWORD2
-getRxCnt	KEYWORD2
-getTxCnt	KEYWORD2
+# OpenCM-X MKR specific functions
+Serial1	KEYWORD1
+Serial2	KEYWORD1
+Serial3	KEYWORD1
 
 # Arduino constants
 
