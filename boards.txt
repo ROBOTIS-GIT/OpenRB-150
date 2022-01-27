@@ -4,7 +4,7 @@
 # menu.bootloader_version=Bootloader version
 # menu.upload_method=Upload method
 
-opencm_x_mkr.name=OpenCM-X MKR
+opencm_x_mkr.name=OpenCM-X_MKR
 opencm_x_mkr.vid.0=0xFFF1
 opencm_x_mkr.pid.0=0xFF49
 opencm_x_mkr.upload_port.0.vid=0xFFF1

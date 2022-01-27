@@ -2,15 +2,15 @@
   "packages":
   [
     {
-      "name": "ROBOTIS",
+      "name": "OpenCM-X MKR",
       "maintainer": "Will Son",
       "websiteURL": "https://www.robotis.com/",
       "email" : "willson@robotis.com",
       "platforms":
       [
         {
-          "name": "ROBOTIS Controller",
-          "architecture": "OpenCM-X MKR",
+          "name": "OpenCM-X MKR",
+          "architecture": "samd",
           "version": "1.0.0",
           "category": "Contributed",
           "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x_mkr.zip",
