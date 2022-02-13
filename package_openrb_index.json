@@ -2,24 +2,24 @@
   "packages":
   [
     {
-      "name": "OpenCM-X MKR",
+      "name": "OpenRB",
       "maintainer": "Will Son",
       "websiteURL": "https://www.robotis.com/",
       "email" : "willson@robotis.com",
       "platforms":
       [
         {
-          "name": "OpenCM-X MKR",
+          "name": "OpenRB",
           "architecture": "samd",
           "version": "1.0.0",
           "category": "Contributed",
-          "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/opencm_x_mkr.zip",
+          "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/openrb.zip",
           "archiveFileName": "opencm_x_mkr.zip",
-          "checksum": "SHA-256:51ae88a8923fe09997aee1cf8d1008f7f649abc335d5668921c70176f57512d3",
+          "checksum": "SHA-256:458d452aa501fd29323b812dd8f168cc8764033431f9c50f5af6b1b5e167ec9f",
           "size": "1775389",
           "boards": [
             {
-              "name": "OpenCM-X MKR"
+              "name": "OpenRB"
             }
           ],
           "toolsDependencies":
