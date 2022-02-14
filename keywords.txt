@@ -1,4 +1,4 @@
-# OpenCM-X MKR specific functions
+# OpenRB specific functions
 Serial1	KEYWORD1
 Serial2	KEYWORD1
 Serial3	KEYWORD1
