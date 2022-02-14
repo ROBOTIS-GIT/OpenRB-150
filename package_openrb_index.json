@@ -15,8 +15,8 @@
           "category": "Contributed",
           "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/openrb.zip",
           "archiveFileName": "openrb.zip",
-          "checksum": "SHA-256:e3beedaf5421b81284c5226c1f4e8b2fcdb60aee5dc456af4295bfcd5418a96b",
-          "size": "1553699",
+          "checksum": "SHA-256:780580e70c69a69e27170d91105695967bc64f2b1f5cc3f8d9d6f46ac1bbeb22",
+          "size": "1553694",
           "boards": [
             {
               "name": "OpenRB"
