@@ -137,7 +137,7 @@ const PinDescription g_APinDescription[] = {
  | 29         | Serial2_Rx       |  PA15  | SD MISO         |   15   |     |     |     |     |  *2/03  |   4/03  |  TC3/1 | TCC0/5 |          | GCLK_IO1 |
  | 30         |                  |  PA27  | SD CD           |   15   |     |     |     |     |         |         |        |        |          | GCLK_IO0 |
  +------------+------------------+--------+-----------------+--------+-----+-----+-----+-----+---------+---------+--------+--------+----------+----------+
- | 31         |                  |  PA28  | BOTTOM PAD      |   08   |     |     |     |     |         |         |        |        |          | GCLK_IO0 |
+ | 31         |                  |  PA28  | DXL_PWR_SW      |   08   |     |     |     |     |         |         |        |        |          | GCLK_IO0 |
  | 32         |                  |  PB08  | LED_BUILTIN     |   08   |  02 |     | Y14 |     |         |   4/00  |  TC4/0 |        |          |          |
  | 33         |                  |  PB09  | ADC_BATTERY     |  *09   |  03 |     | Y15 |     |         |   4/01  |  TC4/1 |        |          |          |
  +------------+------------------+--------+-----------------+--------+-----+-----+-----+-----+---------+---------+--------+--------+----------+----------+
@@ -157,7 +157,7 @@ const PinDescription g_APinDescription[] = {
   // { PORTA, 15, PIO_SERCOM_ALT, (PIN_ATTR_NONE                                ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // MISO: SERCOM4/PAD[3]
   { PORTA, 27, PIO_DIGITAL,    (PIN_ATTR_NONE                                ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },
   
-  { PORTA, 28, PIO_DIGITAL,    (PIN_ATTR_NONE                                ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },
+  { PORTA, 28, PIO_DIGITAL,    (PIN_ATTR_DIGITAL                             ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },
   { PORTB,  8, PIO_DIGITAL,    (PIN_ATTR_NONE                                ), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },
   { PORTB,  9, PIO_ANALOG,     (PIN_ATTR_PWM|PIN_ATTR_TIMER                  ), ADC_Channel3,   PWM4_CH1,   TC4_CH1,      EXTERNAL_INT_9    },
 

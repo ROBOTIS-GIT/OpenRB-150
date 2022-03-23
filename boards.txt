@@ -34,4 +34,4 @@ openrb.build.vid=0x2F5D
 openrb.build.pid=0x2202
 openrb.bootloader.tool=openocd
 openrb.bootloader.tool.default=openocd
-openrb.bootloader.file=openrb.bin
+openrb.bootloader.file=openrb_bootloader.bin

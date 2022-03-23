@@ -71,6 +71,9 @@ extern "C" unsigned int PINCOUNT_fn();
 #define PIN_LED     (32u)
 #define LED_BUILTIN PIN_LED
 
+// DYNAMIXEL POWER FET
+#define DXL_PWR_SW  (31u)
+
 // Analog pins
 // -----------
 #define PIN_A0 (15u)
