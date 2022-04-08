@@ -1,4 +1,5 @@
 # OpenRB specific functions
+Serial  KEYWORD1
 Serial1	KEYWORD1
 Serial2	KEYWORD1
 Serial3	KEYWORD1

@@ -98,6 +98,7 @@ void Uart::IrqHandler()
   }
 
   if (sercom->availableDataUART()) {
+    // PORT->Group[PORTA].OUTSET.reg = 1 << 22;
     rxBuffer.store_char(sercom->readDataUART());
 
     if (uc_pinRTS != NO_RTS_PIN) {
@@ -106,6 +107,7 @@ void Uart::IrqHandler()
         *pul_outsetRTS = ul_pinMaskRTS;
       }
     }
+    // PORT->Group[PORTA].OUTCLR.reg = 1 << 22;
   }
 
   if (sercom->isDataRegisterEmptyUART()) {

@@ -72,7 +72,7 @@ extern "C" unsigned int PINCOUNT_fn();
 #define LED_BUILTIN PIN_LED
 
 // DYNAMIXEL POWER FET
-#define DXL_PWR_SW  (31u)
+#define BDPIN_DXL_PWR_EN  (31u)
 
 // Analog pins
 // -----------
