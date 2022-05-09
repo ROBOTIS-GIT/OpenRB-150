@@ -2,24 +2,24 @@
   "packages":
   [
     {
-      "name": "OpenRB",
+      "name": "OpenRB-150",
       "maintainer": "Will Son",
       "websiteURL": "https://www.robotis.com/",
       "email" : "willson@robotis.com",
       "platforms":
       [
         {
-          "name": "OpenRB",
+          "name": "OpenRB-150",
           "architecture": "samd",
-          "version": "1.0.0",
+          "version": "0.1.0",
           "category": "Contributed",
-          "url": "https://github.com/ROBOTIS-Will/opencm_x/raw/master/openrb.zip",
-          "archiveFileName": "openrb.zip",
-          "checksum": "SHA-256:780580e70c69a69e27170d91105695967bc64f2b1f5cc3f8d9d6f46ac1bbeb22",
-          "size": "1553694",
+          "url": "https://github.com/ROBOTIS-GIT/OpenRB-150/raw/master/OpenRB-150.zip",
+          "archiveFileName": "OpenRB-150.zip",
+          "checksum": "SHA-256:cfdd0f75b25621dab6af834c0d8ef9e5e675ccd9554b066a376a5e76f3888b81",
+          "size": "835451",
           "boards": [
             {
-              "name": "OpenRB"
+              "name": "OpenRB-150"
             }
           ],
           "toolsDependencies":
