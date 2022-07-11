@@ -42,20 +42,20 @@ RC100::~RC100()
 
 void RC100::begin(int num)
 {
-  if(num == 1)
+  if(num == 2)
   {
     Serial2.begin(57600);
     number = num;
   }
-  else if(num == 2)
+  else if(num == 3)
   {
-    Serial4.begin(57600);
+    Serial3.begin(57600);
     number = num;
   }
   else
   {
     Serial2.begin(57600);
-    number = 1;
+    number = 2;
   }
   rc100_rx.state = 0;
   rc100_rx.index = 0;
@@ -64,18 +64,18 @@ void RC100::begin(int num)
 
 int RC100::available(void)
 {
-  if (number == 1)
+  if (number == 2)
   {
     if(Serial2.available())
     {
       return rc100Update(Serial2.read());
     }
   }
-  else if (number == 2)
+  else if (number == 3)
   {
-    if(Serial4.available())
+    if(Serial3.available())
     {
-      return rc100Update(Serial4.read());
+      return rc100Update(Serial3.read());
     }
   }
 
