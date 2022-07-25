@@ -196,6 +196,20 @@ extern Uart Serial3;
 #define PIN_SERIAL3_RX (13ul)
 #define PAD_SERIAL3_TX (UART_TX_PAD_2)
 #define PAD_SERIAL3_RX (SERCOM_RX_PAD_3)
+
+// Serial4 exp uart
+extern Uart Serial4;
+#define PIN_SERIAL4_TX (00ul)
+#define PIN_SERIAL4_RX (01ul)
+#define PAD_SERIAL4_TX (UART_TX_PAD_0)
+#define PAD_SERIAL4_RX (SERCOM_RX_PAD_1)
+
+// Serial5 exp uart
+extern Uart Serial5;
+#define PIN_SERIAL5_TX (02ul)
+#define PIN_SERIAL5_RX (03ul)
+#define PAD_SERIAL5_TX (UART_TX_PAD_2)
+#define PAD_SERIAL5_RX (SERCOM_RX_PAD_3)
 #endif // __cplusplus
 
 #ifdef __cplusplus
