@@ -3,8 +3,8 @@
   [
     {
       "name": "OpenRB-150",
-      "maintainer": "Will Son",
-      "websiteURL": "https://www.robotis.com/",
+      "maintainer": "ROBOTIS",
+      "websiteURL": "https://emanual.robotis.com/docs/en/parts/controller/openrb-150/",
       "email" : "willson@robotis.com",
       "platforms":
       [
@@ -15,8 +15,8 @@
           "category": "Contributed",
           "url": "https://github.com/ROBOTIS-GIT/OpenRB-150/release/download/0.2.0/OpenRB-150.zip",
           "archiveFileName": "OpenRB-150.zip",
-          "checksum": "SHA-256:cfdd0f75b25621dab6af834c0d8ef9e5e675ccd9554b066a376a5e76f3888b81",
-          "size": "835246",
+          "checksum": "SHA-256:5e5400c326570704e86e5d06614e37505b4239ce31f9855dbc98bf97ac8fc45a",
+          "size": "839013",
           "boards": [
             {
               "name": "OpenRB-150"
