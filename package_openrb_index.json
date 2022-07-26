@@ -11,9 +11,9 @@
         {
           "name": "OpenRB-150",
           "architecture": "samd",
-          "version": "0.1.0",
+          "version": "0.2.0",
           "category": "Contributed",
-          "url": "https://github.com/ROBOTIS-GIT/OpenRB-150/raw/master/OpenRB-150.zip",
+          "url": "https://github.com/ROBOTIS-GIT/OpenRB-150/release/download/0.2.0/OpenRB-150.zip",
           "archiveFileName": "OpenRB-150.zip",
           "checksum": "SHA-256:cfdd0f75b25621dab6af834c0d8ef9e5e675ccd9554b066a376a5e76f3888b81",
           "size": "835246",
