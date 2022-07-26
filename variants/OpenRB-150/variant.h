@@ -132,7 +132,7 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 
 // Wire Interfaces
 // ---------------
-// #define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 1
 
 // Wire
 #define PIN_WIRE_SDA        (11u)
