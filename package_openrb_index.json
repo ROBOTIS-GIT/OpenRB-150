@@ -15,8 +15,8 @@
           "category": "Contributed",
           "url": "https://github.com/ROBOTIS-GIT/OpenRB-150/release/download/0.2.0/OpenRB-150.zip",
           "archiveFileName": "OpenRB-150.zip",
-          "checksum": "SHA-256:5e5400c326570704e86e5d06614e37505b4239ce31f9855dbc98bf97ac8fc45a",
-          "size": "839013",
+          "checksum": "SHA-256:36f5724d94c2273b732f6cc7c0576badc12e47e344cc655d123ebb45786533be",
+          "size": "840540",
           "boards": [
             {
               "name": "OpenRB-150"
