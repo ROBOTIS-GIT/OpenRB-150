@@ -50,6 +50,49 @@
               "version": "1.2.0"
             }
           ]
+        },
+        {
+          "name": "OpenRB-150",
+          "architecture": "samd",
+          "version": "0.2.1",
+          "category": "Contributed",
+          "url": "https://github.com/ROBOTIS-GIT/OpenRB-150/releases/download/0.2.1/OpenRB-150.zip",
+          "archiveFileName": "OpenRB-150.zip",
+          "checksum": "SHA-256:c52eded07b79e4a1a7222e3211047f002b1e5d1811f18acbff974223874c3b6e",
+          "size": "839396",
+          "boards": [
+            {
+              "name": "OpenRB-150"
+            }
+          ],
+          "toolsDependencies":
+          [
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "7-2017q4"
+            },
+            {
+              "packager": "arduino",
+              "name": "bossac",
+              "version": "1.7.0-arduino3"
+            },
+            {
+              "packager": "arduino",
+              "name": "openocd",
+              "version": "0.10.0-arduino9"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS",
+              "version": "4.5.0"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS-Atmel",
+              "version": "1.2.0"
+            }
+          ]
         }
       ],
       "tools":
