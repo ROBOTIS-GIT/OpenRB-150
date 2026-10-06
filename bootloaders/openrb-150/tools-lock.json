@@ -1,0 +1,26 @@
+{
+  "arm-none-eabi-gcc": {
+    "version": "7-2017q4",
+    "host": "x86_64-pc-linux-gnu",
+    "url": "https://downloads.arduino.cc/tools/gcc-arm-none-eabi-7-2017-q4-major-linux64.tar.bz2",
+    "archiveFileName": "gcc-arm-none-eabi-7-2017-q4-major-linux64.tar.bz2",
+    "checksum": "SHA-256:96a029e2ae130a1210eaa69e309ea40463028eab18ba19c1086e4c2dafe69a6a",
+    "size": "99857645"
+  },
+  "CMSIS": {
+    "version": "4.5.0",
+    "host": "x86_64-pc-linux-gnu",
+    "url": "https://downloads.arduino.cc/CMSIS-4.5.0.tar.bz2",
+    "archiveFileName": "CMSIS-4.5.0.tar.bz2",
+    "checksum": "SHA-256:cd8f7eae9fc7c8b4a1b5e40b89b9666d33953b47d3d2eb81844f5af729fa224d",
+    "size": "31525196"
+  },
+  "CMSIS-Atmel": {
+    "version": "1.2.0",
+    "host": "x86_64-pc-linux-gnu",
+    "url": "https://downloads.arduino.cc/CMSIS-Atmel-1.2.0.tar.bz2",
+    "archiveFileName": "CMSIS-Atmel-1.2.0.tar.bz2",
+    "checksum": "SHA-256:5e02670be7e36be9691d059bee0b04ee8b249404687531f33893922d116b19a5",
+    "size": "2221805"
+  }
+}
