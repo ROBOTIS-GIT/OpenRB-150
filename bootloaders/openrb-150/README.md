@@ -44,6 +44,53 @@ timestamp for binary compatibility. Initial SP is `0x20007c00`, reset vector
 Binary equality is the compatibility criterion; it does not establish the
 original source text, author intent, or a tested DYNAMIXEL bootloading protocol.
 
+## Upstream patch
+
+[`upstream.patch`](upstream.patch) records the changes to the retained target
+source files from ArduinoCore-samd commit
+`ed21e120116845636abb51fc9a3a4abcbb391d22`, directory `bootloaders/zero`.
+The board baseline is `board_definitions_arduino_mkrzero.h`, renamed to
+`board_definitions_openrb150.h`. The patch covers the six changed files,
+including the rename and dated modification notices. The other 15 retained
+source files are unchanged. Unused upstream board configurations and drivers
+are omitted from the selected source set. Python tools and dependency notices
+are maintained separately.
+
+To verify the patch, run the following from this directory with a local
+ArduinoCore-samd checkout containing the pinned commit:
+
+```sh
+upstream_checkout=/path/to/ArduinoCore-samd
+upstream_revision=ed21e120116845636abb51fc9a3a4abcbb391d22
+patch_work=$(mktemp -d)
+for file in src/*; do
+  name=${file##*/}
+  if [ "$name" = board_definitions_openrb150.h ]; then
+    name=board_definitions_arduino_mkrzero.h
+  fi
+  git -C "$upstream_checkout" show "$upstream_revision:bootloaders/zero/$name" > "$patch_work/$name" || exit 1
+done
+git -C "$patch_work" apply --check "$PWD/upstream.patch"
+git -C "$patch_work" apply "$PWD/upstream.patch"
+diff -ru src "$patch_work"
+```
+
+To regenerate the patch, first repeat the baseline extraction through `done`,
+skipping the apply commands. Then initialize its index and copy the current
+target files over it:
+
+```sh
+git -C "$patch_work" init -q
+git -C "$patch_work" add .
+rm "$patch_work/board_definitions_arduino_mkrzero.h"
+cp src/* "$patch_work/"
+git -C "$patch_work" add -N board_definitions_openrb150.h
+git -C "$patch_work" diff --no-ext-diff --no-textconv --find-renames --full-index > upstream.patch
+```
+
+After regeneration, verify application against a fresh baseline and run
+`build.py` to confirm the complete distributed binary still matches.
+
 ## Licensing and distribution
 
 The imported bootloader source and its modifications retain LGPL-2.1-or-later
