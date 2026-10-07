@@ -1,0 +1,196 @@
+diff --git a/Makefile b/Makefile
+index 61fca6eb5d043dac906a1049deb9dd0f2bb4344d..9f4bc05e4d7033eced7cc3a25f0b638777bf00f9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,3 +1,4 @@
++# OpenRB-150 modifications, 2026-10-06: OpenRB-150 build defaults and target source list.
+ # Copyright (c) 2015 Atmel Corporation/Thibaut VIARD.  All right reserved.
+ # Copyright (c) 2015 Arduino LLC.  All right reserved.
+ #
+@@ -57,8 +58,8 @@ SIZE=$(ARM_GCC_PATH)size
+ 
+ # -----------------------------------------------------------------------------
+ # Boards definitions
+-BOARD_ID?=arduino_zero
+-NAME?=samd21_sam_ba
++BOARD_ID?=openrb150
++NAME?=openrb-150_bootloader
+ 
+ # -----------------------------------------------------------------------------
+ # Compiler options
+@@ -68,7 +69,7 @@ CFLAGS=-mthumb -mcpu=cortex-m0plus -Wall -c -std=gnu99 -ffunction-sections -fdat
+ ifdef DEBUG
+   CFLAGS+=-g3 -O1 -DDEBUG=1
+ else
+-  CFLAGS+=-Os -DDEBUG=0 -flto
++  CFLAGS+=-O1 -DDEBUG=0
+ endif
+ 
+ ifdef SECURE_BY_DEFAULT
+@@ -89,10 +90,7 @@ LDFLAGS+=-Wl,--warn-common -Wl,--warn-section-align -Wl,--warn-unresolved-symbol
+ # -----------------------------------------------------------------------------
+ # Source files and objects
+ SOURCES= \
+-  board_driver_i2c.c \
+   board_driver_led.c \
+-  board_driver_pmic.c \
+-  board_driver_jtag.c \
+   board_driver_serial.c \
+   board_driver_usb.c \
+   board_init.c \
+diff --git a/board_definitions.h b/board_definitions.h
+index 097484ceaffead0cf3bdb76254665be6d49a5562..9ea27e244c2647807806ee39d4596c2bc5aef502 100644
+--- a/board_definitions.h
++++ b/board_definitions.h
+@@ -1,3 +1,4 @@
++/* OpenRB-150 modifications, 2026-10-06: Select the OpenRB-150 board configuration. */
+ /*
+   Copyright (c) 2015 Arduino LLC.  All right reserved.
+   Copyright (c) 2015 Atmel Corporation/Thibaut VIARD.  All right reserved.
+@@ -17,30 +18,10 @@
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+ 
+-#if defined(BOARD_ID_arduino_zero)
+-  #include "board_definitions_arduino_zero.h"
+-#elif defined(BOARD_ID_arduino_mkr1000)
+-  #include "board_definitions_arduino_mkr1000.h"
+-#elif defined(BOARD_ID_arduino_mkrzero)
+-  #include "board_definitions_arduino_mkrzero.h"
+-#elif defined(BOARD_ID_arduino_mkrfox1200)
+-  #include "board_definitions_arduino_mkrfox1200.h"
+-#elif defined(BOARD_ID_arduino_mkrgsm1400)
+-  #include "board_definitions_arduino_mkrgsm1400.h"
+-#elif defined(BOARD_ID_arduino_mkrwan1300)
+-  #include "board_definitions_arduino_mkrwan1300.h"
+-#elif defined(BOARD_ID_arduino_mkrwan1310)
+-  #include "board_definitions_arduino_mkrwan1310.h"
+-#elif defined(BOARD_ID_arduino_mkrwifi1010)
+-  #include "board_definitions_arduino_mkrwifi1010.h"
+-#elif defined(BOARD_ID_arduino_mkrvidor4000)
+-  #include "board_definitions_arduino_mkrvidor4000.h"
+-#elif defined(BOARD_ID_arduino_mkrnb1500)
+-  #include "board_definitions_arduino_mkrnb1500.h"
+-#elif defined(BOARD_ID_arduino_nano_33_iot)
+-  #include "board_definitions_arduino_nano_33_iot.h"
++#if defined(BOARD_ID_openrb150)
++  #include "board_definitions_openrb150.h"
+ #else
+-  #error You must define a BOARD_ID and add the corresponding definitions in board_definitions.h
++  #error Define BOARD_ID_openrb150 for the OpenRB-150 bootloader
+ #endif
+ 
+ // Common definitions
+diff --git a/board_definitions_arduino_mkrzero.h b/board_definitions_openrb150.h
+similarity index 83%
+rename from board_definitions_arduino_mkrzero.h
+rename to board_definitions_openrb150.h
+index 0adfeb67b99fb545d556df0e549a46a2e423068a..012527ec616839b7b622be5f4f8c0af551a30bfb 100644
+--- a/board_definitions_arduino_mkrzero.h
++++ b/board_definitions_openrb150.h
+@@ -1,3 +1,4 @@
++/* OpenRB-150 modifications, 2026-10-06: OpenRB-150 USB identity and UART routing. */
+ /*
+   Copyright (c) 2016 Arduino LLC.  All right reserved.
+ 
+@@ -22,11 +23,11 @@
+ /*
+  * USB device definitions
+  */
+-#define STRING_PRODUCT "Arduino MKRZero"
+-#define USB_VID_HIGH   0x23
+-#define USB_VID_LOW    0x41
+-#define USB_PID_HIGH   0x00
+-#define USB_PID_LOW    0x4F
++#define STRING_PRODUCT "OpenRB"
++#define USB_VID_HIGH   0x2F
++#define USB_VID_LOW    0x5D
++#define USB_PID_HIGH   0x22
++#define USB_PID_LOW    0x02
+ 
+ /*
+  * If BOOT_DOUBLE_TAP_ADDRESS is defined the bootloader is started by
+@@ -44,12 +45,12 @@
+ //#define BOOT_LOAD_PIN                     PIN_PA21
+ //#define BOOT_LOAD_PIN                     PIN_PA15
+ 
+-#define BOOT_USART_MODULE                 SERCOM5
+-#define BOOT_USART_BUS_CLOCK_INDEX        PM_APBCMASK_SERCOM5
+-#define BOOT_USART_PER_CLOCK_INDEX        GCLK_CLKCTRL_ID_SERCOM5_CORE_Val
++#define BOOT_USART_MODULE                 SERCOM0
++#define BOOT_USART_BUS_CLOCK_INDEX        PM_APBCMASK_SERCOM0
++#define BOOT_USART_PER_CLOCK_INDEX        GCLK_CLKCTRL_ID_SERCOM0_CORE_Val
+ #define BOOT_USART_PAD_SETTINGS           UART_RX_PAD3_TX_PAD2
+-#define BOOT_USART_PAD3                   PINMUX_PB23D_SERCOM5_PAD3
+-#define BOOT_USART_PAD2                   PINMUX_PB22D_SERCOM5_PAD2
++#define BOOT_USART_PAD3                   PINMUX_PA11C_SERCOM0_PAD3
++#define BOOT_USART_PAD2                   PINMUX_PA10C_SERCOM0_PAD2
+ #define BOOT_USART_PAD1                   PINMUX_UNUSED
+ #define BOOT_USART_PAD0                   PINMUX_UNUSED
+ 
+diff --git a/board_driver_led.c b/board_driver_led.c
+index ffa6c4782e83cbd4bdbb590b14309ca375bf9604..f28052efe01d19d9c4f034f230a269e7532c18e7 100644
+--- a/board_driver_led.c
++++ b/board_driver_led.c
+@@ -1,3 +1,4 @@
++/* OpenRB-150 modifications, 2026-10-06: LED behavior matching the distributed OpenRB-150 image. */
+ /*
+   Copyright (c) 2015 Arduino LLC.  All right reserved.
+   Copyright (c) 2015 Atmel Corporation/Thibaut VIARD.  All right reserved.
+@@ -31,7 +32,9 @@ inline void LED_pulse()
+   }
+   ledKeepValue ++;
+ 
+-  if (ledTargetValue > 240 || ledTargetValue < 10) {
++  /* Keep both volatile reads at 0x00b4/0x00b6 for binary compatibility.
++   * See README: first upper-bound comparison is optimized away. */
++  if (ledTargetValue > 255 || ledTargetValue < 3) {
+     ledDirection = -ledDirection;
+     ledTargetValue += ledDirection;
+   }
+diff --git a/main.c b/main.c
+index 402be2981a604b28559d1cd14c8aba2c8cd445a3..7604c125e1edd704a412cdd4f547389f0a661ddb 100644
+--- a/main.c
++++ b/main.c
+@@ -1,3 +1,4 @@
++/* OpenRB-150 modifications, 2026-10-06: Remove headers for unused board drivers. */
+ /*
+   Copyright (c) 2015 Arduino LLC.  All right reserved.
+   Copyright (c) 2015 Atmel Corporation/Thibaut VIARD.  All right reserved.
+@@ -23,9 +24,6 @@
+ #include "sam_ba_serial.h"
+ #include "board_definitions.h"
+ #include "board_driver_led.h"
+-#include "board_driver_i2c.h"
+-#include "board_driver_pmic.h"
+-#include "board_driver_jtag.h"
+ #include "sam_ba_usb.h"
+ #include "sam_ba_cdc.h"
+ 
+diff --git a/sam_ba_monitor.c b/sam_ba_monitor.c
+index 619d1334b2987fde597f88c5caed6556a2670074..24ea2cb58d9ad6fbd005f915711fc5674f0e6962 100644
+--- a/sam_ba_monitor.c
++++ b/sam_ba_monitor.c
+@@ -1,3 +1,4 @@
++/* OpenRB-150 modifications, 2026-10-06: Fixed image timestamp and removal of unused JTAG header. */
+ /*
+   Copyright (c) 2015 Arduino LLC.  All right reserved.
+   Copyright (c) 2015 Atmel Corporation/Thibaut VIARD.  All right reserved.
+@@ -23,7 +24,6 @@
+ #include "sam_ba_serial.h"
+ #include "board_driver_serial.h"
+ #include "board_driver_usb.h"
+-#include "board_driver_jtag.h"
+ #include "sam_ba_usb.h"
+ #include "sam_ba_cdc.h"
+ #include "board_driver_led.h"
+@@ -450,7 +450,8 @@ static void sam_ba_monitor_loop(void)
+         sam_ba_putdata( ptr_monitor_if, (uint8_t *) RomBOOT_Version, strlen(RomBOOT_Version));
+         sam_ba_putdata( ptr_monitor_if, " ", 1);
+         sam_ba_putdata( ptr_monitor_if, (uint8_t *) RomBOOT_ExtendedCapabilities, strlen(RomBOOT_ExtendedCapabilities));
+-        ptr = (uint8_t*) &(" " __DATE__ " " __TIME__ "\n\r");
++        /* Fixed to the timestamp embedded in the verified historical image. */
++        ptr = (uint8_t*) &(" " "Feb 14 2022" " " "00:27:50" "\n\r");
+         sam_ba_putdata( ptr_monitor_if, ptr, strlen(ptr));
+       }
+       else if (command == 'X') // Erase flash

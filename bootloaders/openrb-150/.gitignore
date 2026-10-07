@@ -1,0 +1,6 @@
+/out*/
+/tools/
+/src/build/
+/src/*.bin
+/src/*.hex
+__pycache__/
